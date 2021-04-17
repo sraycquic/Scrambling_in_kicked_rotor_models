@@ -21,7 +21,7 @@ def matrixN(nt,K):
     for i in xrange(-N,N-1): #total row is 3
         row1=[]  #define empty row
         for k in xrange(-N,N-1): #total column is 3
-            row1.append(jv(i-k,K)*np.exp(-0.5*hbar*1j*i**2)*1j**(i-k)) #adding Bessel function for each column for this row
+            row1.append(jv(i-k,K)*np.exp(-0.5*hbar*1j*i**2)*1j**(i-k)) #adding Bessel function for each column for this row     ## jv is Bessel function of first kind
         matrix.append(row1) #add fully defined column into the row
     matrix = np.array(matrix)
     return LA.matrix_power(matrix, nt)
