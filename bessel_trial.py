@@ -11,8 +11,7 @@ sgm = 4
 n0 = 0
 A = 0.5*hbar**2/sgm**2
 t = 30
-#K = 5
-#nt = 5
+
 
 #Preparing the time evolution operator
 
@@ -94,8 +93,6 @@ ini = np.array(ini)
 ini = ini.transpose()
 
 denom = np.dot(ini.conj().T, ini)
-#print denom
-#print ini
 
 #expectation value of the commutator with theta(t) and p(0), on the initial state
 def mat6(nt,K):
@@ -118,17 +115,9 @@ def mat_res_p(nt,K):
 #Plotting OTOC
 mat_resp_vec = np.vectorize(mat_res_p)
 inp = np.array(range(1,t))
-#out1 = mat_resp_vec(inp,0.5)
-#out2 = mat_resp_vec(inp,1)
-#out3 = mat_resp_vec(inp,2)
 out4 = mat_resp_vec(inp,4)
-#out5 = mat_resp_vec(inp,6)
-#out6 = mat_resp_vec(inp,10)
-
 
 import matplotlib.pyplot as plt
-# plt.semilogy(inp, out1,'r', inp, out2,'b', inp, out3,'g', inp, out4, 'y', inp, out5,'r--', inp, out6, 'b--')
-#plt.semilogy(inp, out1, 'r', inp, out3,'g', inp, out5, 'b')
 plt.semilogy(inp, out4)
 plt.xlabel('time')
 plt.ylabel('OTOC')
